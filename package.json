@@ -21,7 +21,7 @@
     "lodash": "^4.17.4",
     "moment": "^2.6.0",
     "ora": "^1.1.0",
-    "scp2": "^0.1.4",
+    "scp2": "https://github.com/spmjs/node-scp2.git#8bf92f",
     "ssh2": "^0.5.4"
   },
   "devDependencies": {
