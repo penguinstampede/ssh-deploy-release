@@ -301,9 +301,11 @@ module.exports = function () {
                 logger.fatal(this.options.archiveType + ' not supported.');
             }
 
-            var command = [untarMap[this.options.archiveType], "rm " + archivePath].join('\n');
+            var commands = [untarMap[this.options.archiveType], "rm " + archivePath];
 
-            this.remote.exec(command, function () {
+            async.eachSeries(commands, function (command, itemDone) {
+                _this6.remote.exec(command, itemDone);
+            }, function () {
                 spinner.stop();
                 _this6.logger.ok('Done');
                 done();
